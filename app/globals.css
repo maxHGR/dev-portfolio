@@ -1,26 +1,136 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.96 0.02 75); /* Light warm beige */
+  --foreground: oklch(0.35 0.03 50); /* Medium warm brown */
+  --card: oklch(0.96 0.02 75); /* Light warm beige */
+  --card-foreground: oklch(0.35 0.03 50); /* Medium warm brown */
+  --popover: oklch(0.96 0.02 75); /* Light warm beige */
+  --popover-foreground: oklch(0.35 0.03 50); /* Medium warm brown */
+  --primary: oklch(0.7 0.03 70); /* Soft taupe-brown */
+  --primary-foreground: oklch(0.35 0.03 50); /* Medium warm brown */
+  --secondary: oklch(0.85 0.02 75); /* Pale sand-brown */
+  --secondary-foreground: oklch(0.35 0.03 50); /* Medium warm brown */
+  --muted: oklch(0.85 0.02 70); /* Light brownish gray */
+  --muted-foreground: oklch(0.5 0.03 55); /* Subtle warm brown */
+  --accent: oklch(0.7 0.05 60); /* Rich amber-brown */
+  --accent-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --destructive: oklch(0.6 0.05 40); /* Deep terracotta */
+  --border: oklch(0.9 0.02 75); /* Very light warm brown */
+  --input: oklch(0.95 0.02 78); /* Soft sand-brown */
+  --ring: oklch(0.7 0.03 70); /* Light taupe-brown */
+  --chart-1: oklch(0.7 0.03 70); /* Soft taupe-brown */
+  --chart-2: oklch(0.85 0.02 75); /* Pale sand-brown */
+  --chart-3: oklch(0.7 0.05 60); /* Rich amber-brown */
+  --chart-4: oklch(0.6 0.05 40); /* Deep terracotta */
+  --chart-5: oklch(0.8 0.03 65); /* Muted copper-brown */
+  --sidebar: oklch(0.96 0.02 75); /* Light warm beige */
+  --sidebar-foreground: oklch(0.35 0.03 50); /* Medium warm brown */
+  --sidebar-primary: oklch(0.7 0.03 70); /* Soft taupe-brown */
+  --sidebar-primary-foreground: oklch(0.35 0.03 50); /* Medium warm brown */
+  --sidebar-accent: oklch(0.7 0.05 60); /* Rich amber-brown */
+  --sidebar-accent-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --sidebar-border: oklch(0.9 0.02 75); /* Very light warm brown */
+  --sidebar-ring: oklch(0.7 0.03 70); /* Light taupe-brown */
+  --pop-accent: oklch(0.6 0.06 50); /* Burnt orange-brown */
+  --pop-accent-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+}
+
+.dark {
+  --background: oklch(0.35 0.03 50); /* Medium warm brown */
+  --foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --card: oklch(0.5 0.03 55); /* Subtle warm brown */
+  --card-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --popover: oklch(0.5 0.03 55); /* Subtle warm brown */
+  --popover-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --primary: oklch(0.7 0.03 70); /* Soft taupe-brown */
+  --primary-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --secondary: oklch(0.85 0.02 75); /* Pale sand-brown */
+  --secondary-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --muted: oklch(0.5 0.03 55); /* Subtle warm brown */
+  --muted-foreground: oklch(0.85 0.02 70); /* Light brownish gray */
+  --accent: oklch(0.7 0.05 60); /* Rich amber-brown */
+  --accent-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --destructive: oklch(0.6 0.05 40); /* Deep terracotta */
+  --border: oklch(0.5 0.03 55); /* Subtle warm brown */
+  --input: oklch(0.5 0.03 55); /* Subtle warm brown */
+  --ring: oklch(0.7 0.03 70); /* Light taupe-brown */
+  --chart-1: oklch(0.7 0.03 70); /* Soft taupe-brown */
+  --chart-2: oklch(0.85 0.02 75); /* Pale sand-brown */
+  --chart-3: oklch(0.7 0.05 60); /* Rich amber-brown */
+  --chart-4: oklch(0.6 0.05 40); /* Deep terracotta */
+  --chart-5: oklch(0.8 0.03 65); /* Muted copper-brown */
+  --sidebar: oklch(0.5 0.03 55); /* Subtle warm brown */
+  --sidebar-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --sidebar-primary: oklch(0.7 0.03 70); /* Soft taupe-brown */
+  --sidebar-primary-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --sidebar-accent: oklch(0.7 0.05 60); /* Rich amber-brown */
+  --sidebar-accent-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+  --sidebar-border: oklch(0.5 0.03 55); /* Subtle warm brown */
+  --sidebar-ring: oklch(0.7 0.03 70); /* Light taupe-brown */
+  --pop-accent: oklch(0.6 0.06 50); /* Burnt orange-brown */
+  --pop-accent-foreground: oklch(0.96 0.02 75); /* Light warm beige */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
+

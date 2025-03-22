@@ -1,73 +1,120 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "./components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card"
+import { Badge } from "./components/ui/badge"
 import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Download } from "lucide-react"
 
+
+import picture from "./assets/picture/Bewerbungsfoto.png"
+
+import htmlIcon from "./assets/skill-icons/html.svg"
+import cssIcon from "./assets/skill-icons/css.svg"
+import javascriptIcon from "./assets/skill-icons/javascript.svg"
+import reactIcon from "./assets/skill-icons/react.svg"
+import tailwindIcon from "./assets/skill-icons/tailwind.svg"
+import reduxIcon from "./assets/skill-icons/redux.svg"
+import nextjsIcon from "./assets/skill-icons/nextjs.svg"
+import uiuxIcon from "./assets/skill-icons/uiux.svg"
+import blockchainIcon from "./assets/skill-icons/blockchain.svg"
+
+import ecommerceProject from "./assets/projects/buether.png"
+import weatherChatProject from "./assets/projects/ai-weather.png"
+import recipeFinderProject from "./assets/projects/recipe-finder.png"
+
+import aboutmeIllustration from "./assets/illustrations/computer-illustration(2).avif"
+
 export default function PortfolioPage() {
+  const containerStyle = "container min-w-full px-2 sm:px-8"; 
+
+  const skillIcons = {
+    html: htmlIcon,
+    css: cssIcon,
+    javascript: javascriptIcon,
+    react: reactIcon,
+    tailwind: tailwindIcon,
+    redux: reduxIcon,
+    nextjs: nextjsIcon,
+    blockchain: blockchainIcon,
+    uiux: uiuxIcon,
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="font-bold text-xl">
+      <header
+        className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className={`${containerStyle} flex h-16 items-center justify-between`}>
+          
+          <div className="basis-2/6 font-bold text-xl">
             <Link href="/">
               <span className="text-primary">Dev</span>Portfolio
             </Link>
           </div>
-          <nav className="hidden md:flex gap-6">
-            <Link href="#about" className="text-sm font-medium hover:text-primary transition-colors">
+
+          <nav className="basis-2/6 flex justify-center hidden md:flex gap-6">
+            <Link
+              href="#about"
+              className="text-sm font-medium hover:text-primary transition-colors">
               About
             </Link>
-            <Link href="#skills" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link
+              href="#skills"
+              className="text-sm font-medium hover:text-primary transition-colors">
               Skills
             </Link>
-            <Link href="#projects" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link
+              href="#projects"
+              className="text-sm font-medium hover:text-primary transition-colors">
               Projects
             </Link>
-            <Link href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link
+              href="#contact"
+              className="text-sm font-medium hover:text-primary transition-colors">
               Contact
             </Link>
           </nav>
-          <div className="flex items-center gap-4">
+
+          <div className="basis-2/6 flex justify-end items-center gap-4">
             <Link
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium hover:text-primary transition-colors"
-            >
+              className="text-sm font-medium hover:text-primary transition-colors">
               <Github className="h-4 w-4" />
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/h%C3%B6ger-maximilian/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium hover:text-primary transition-colors"
-            >
+              className="text-sm font-medium hover:text-primary transition-colors">
               <Linkedin className="h-4 w-4" />
             </Link>
           </div>
+
         </div>
       </header>
+
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="container py-24 md:py-32 space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <section className={`${containerStyle} pb-16  pt-5 md:pt-2 space-y-8`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Hi, I'm <span className="text-primary">Alex</span>
+                Hi, I'm <span className="text-primary">Maximilian,</span>
                 <br />
                 Frontend Developer
               </h1>
               <p className="text-xl text-muted-foreground">
                 I build accessible, responsive, and performant web applications with modern technologies.
               </p>
-              <div className="flex gap-4">
-                <Button>
-                  View My Work
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <a href="/alex-developer-cv.pdf" download className="inline-flex">
+              <div className="flex justify-start gap-x-3">
+                <Link href="/#projects">
+                  <Button>
+                    View My Work
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <a href="/cv/cv-maximilian-hoeger.pdf" download className="inline-flex">
                   <Button variant="outline">
                     Download CV
                     <Download className="ml-2 h-4 w-4" />
@@ -81,13 +128,13 @@ export default function PortfolioPage() {
                     <span className="sr-only">GitHub</span>
                   </Button>
                 </Link>
-                <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.linkedin.com/in/h%C3%B6ger-maximilian/" target="_blank" rel="noopener noreferrer">
                   <Button variant="ghost" size="icon">
                     <Linkedin className="h-5 w-5" />
                     <span className="sr-only">LinkedIn</span>
                   </Button>
                 </Link>
-                <Link href="mailto:hello@example.com">
+                <Link href="mailto:maxhgr3@gmail.com">
                   <Button variant="ghost" size="icon">
                     <Mail className="h-5 w-5" />
                     <span className="sr-only">Email</span>
@@ -95,22 +142,22 @@ export default function PortfolioPage() {
                 </Link>
               </div>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-full border-4 border-primary/20 md:order-last order-first mx-auto md:mx-0 max-w-[300px] md:max-w-none">
+            <div
+              className="relative aspect-square flex justify-center items-center overflow-hidden rounded-full  md:order-last order-first mx-auto md:mx-0 max-w-[300px] md:max-w-none">
               <Image
-                src="/placeholder.svg?height=600&width=600"
+                src={picture}
                 alt="Developer portrait"
-                width={600}
-                height={600}
-                className="object-cover"
-                priority
-              />
+                width={500}
+                height={500}
+                className="object-fit rounded-full border-4 border-primary/20"
+                priority />
             </div>
           </div>
         </section>
 
         {/* About Section */}
-        <section id="about" className="bg-muted py-16">
-          <div className="container space-y-6">
+        <section id="about" className="bg-muted py-16 ">
+          <div className={`${containerStyle} space-y-6`}>
             <div className="space-y-2 text-center max-w-2xl mx-auto">
               <Badge variant="outline" className="px-3 py-1 text-sm">
                 About Me
@@ -121,32 +168,30 @@ export default function PortfolioPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-8">
-              <div className="relative aspect-video overflow-hidden rounded-lg border">
+              <div className="relative aspect-video">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src={aboutmeIllustration}
                   alt="Developer working"
-                  width={600}
-                  height={400}
-                  className="object-cover"
-                />
+                  width={500}
+                  height={300}
+                  className="object-cover rounded-lg mx-auto" />
               </div>
               <div className="space-y-4">
                 <p>
-                  I'm a frontend developer with 5+ years of experience building modern web applications. I specialize in
-                  React, Next.js, and TypeScript, with a strong focus on creating accessible and performant user
+                  I'm a frontend developer who builds modern web applications. I specialize in
+                  React, Next.js and Tailwind CSS, with a strong focus on creating accessible and performant user
                   interfaces.
                 </p>
                 <p>
-                  My journey began with a degree in Computer Science, followed by roles at various tech companies where
-                  I've had the opportunity to work on diverse projects ranging from e-commerce platforms to SaaS
-                  applications.
+                  My journey began with a web development course, followed by learning the fundamentals of computer systems and various technologies 
+                  which I used to work on diverse projects ranging from e-commerce to blockchain.
                 </p>
                 <p>
-                  When I'm not coding, you can find me exploring new technologies, contributing to open source, or
-                  sharing my knowledge through blog posts and community events.
+                  When I'm not coding, you can find me exploring new technologies, reading tech articles, or
+                  learning about computer systems .
                 </p>
-                <div className="pt-2">
-                  <a href="/alex-developer-cv.pdf" download className="inline-flex">
+                <div className="pb-2 pt-5">
+                  <a href="/cv/cv-maximilian-hoeger.pdf" download className="inline-flex">
                     <Button variant="outline" size="sm">
                       Download My CV
                       <Download className="ml-2 h-4 w-4" />
@@ -159,7 +204,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="container py-16 space-y-8">
+        <section id="skills" className={`${containerStyle} py-16 space-y-8`}>
           <div className="space-y-2 text-center max-w-2xl mx-auto">
             <Badge variant="outline" className="px-3 py-1 text-sm">
               Skills
@@ -167,20 +212,29 @@ export default function PortfolioPage() {
             <h2 className="text-3xl font-bold tracking-tight">My Technical Skills</h2>
             <p className="text-muted-foreground">The technologies and tools I use to bring products to life.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-8">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-8">
             {[
-              { name: "HTML & CSS", description: "Semantic markup and modern CSS" },
-              { name: "JavaScript", description: "ES6+, TypeScript, and functional programming" },
-              { name: "React", description: "Components, hooks, and state management" },
-              { name: "Next.js", description: "Server-side rendering and static site generation" },
-              { name: "Tailwind CSS", description: "Utility-first CSS framework" },
-              { name: "UI/UX Design", description: "Figma, responsive design, and accessibility" },
-              { name: "Testing", description: "Jest, React Testing Library, and Cypress" },
-              { name: "Performance", description: "Web vitals optimization and monitoring" },
+              { name: "HTML", description: "Semantic markup and accessability", icon: skillIcons.html },
+              { name: "CSS", description: "Modern CSS", icon: skillIcons.css },
+              { name: "JavaScript", description: "ES6+, TypeScript, and functional programming", icon: skillIcons.javascript },
+              { name: "React", description: "Components, hooks, and state management", icon: skillIcons.react },
+              { name: "Next.js", description: "Server-side rendering and static site generation", icon: skillIcons.nextjs },
+              { name: "Tailwind CSS", description: "Utility-first CSS framework", icon: skillIcons.tailwind },
+              { name: "UI/UX", description: "Responsive design and intuitive navigation that increases UX", icon: skillIcons.uiux },
+              { name: "Blockchain", description: "Blockchain ecosystem", icon: skillIcons.blockchain },
             ].map((skill, index) => (
               <Card key={index} className="h-full">
                 <CardHeader>
-                  <CardTitle>{skill.name}</CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>{skill.name}</CardTitle>
+                    <Image
+                      src={skill.icon}
+                      alt={skill.name}
+                      width={50}
+                      height={50}
+                      className="object-contain mr-[5%]" />                       
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <CardDescription>{skill.description}</CardDescription>
@@ -192,7 +246,7 @@ export default function PortfolioPage() {
 
         {/* Projects Section */}
         <section id="projects" className="bg-muted py-16">
-          <div className="container space-y-8">
+          <div className={`${containerStyle} space-y-8`}>
             <div className="space-y-2 text-center max-w-2xl mx-auto">
               <Badge variant="outline" className="px-3 py-1 text-sm">
                 Projects
@@ -205,20 +259,20 @@ export default function PortfolioPage() {
                 {
                   title: "E-commerce Platform",
                   description: "A modern e-commerce platform built with Next.js and Stripe integration.",
-                  image: "/placeholder.svg?height=300&width=500",
-                  tags: ["Next.js", "Stripe", "Tailwind CSS"],
+                  image: ecommerceProject,
+                  tags: ["React", "Next.js", "Stripe", "Tailwind CSS", "Redux", "Firebase"],
                 },
                 {
-                  title: "Dashboard UI",
-                  description: "An admin dashboard with data visualization and user management.",
-                  image: "/placeholder.svg?height=300&width=500",
-                  tags: ["React", "TypeScript", "Chart.js"],
+                  title: "AI Weather Chat",
+                  description: "A chatbot that provides real-time weather updates using AI and OpenWeather API.",
+                  image: weatherChatProject,
+                  tags: ["React", "TypeScript", "Tailwind CSS","OpenAI API"],
                 },
                 {
-                  title: "Mobile App",
+                  title: "Recipe Finder",
                   description: "A cross-platform mobile application built with React Native.",
-                  image: "/placeholder.svg?height=300&width=500",
-                  tags: ["React Native", "Redux", "Firebase"],
+                  image: recipeFinderProject,
+                  tags: ["React", "CSS"],
                 },
               ].map((project, index) => (
                 <Card key={index} className="overflow-hidden">
@@ -227,8 +281,7 @@ export default function PortfolioPage() {
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       fill
-                      className="object-cover"
-                    />
+                      className="object-cover" />
                   </div>
                   <CardHeader>
                     <CardTitle>{project.title}</CardTitle>
@@ -243,10 +296,13 @@ export default function PortfolioPage() {
                       ))}
                     </div>
                   </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Details
-                    </Button>
+                  <CardFooter className="flex justify-end">
+                    <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                      <Button variant="ghost" size="icon">
+                        <Github className="h-5 w-5" />
+                        <span className="sr-only">GitHub</span>
+                      </Button>
+                    </Link>
                     <Button size="sm" variant="ghost">
                       <ExternalLink className="h-4 w-4" />
                       <span className="sr-only">Visit project</span>
@@ -255,17 +311,11 @@ export default function PortfolioPage() {
                 </Card>
               ))}
             </div>
-            <div className="flex justify-center pt-8">
-              <Button variant="outline">
-                View All Projects
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
           </div>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="container py-16 space-y-8">
+        <section id="contact" className={`${containerStyle} py-16 space-y-8`}>
           <div className="space-y-2 text-center max-w-2xl mx-auto">
             <Badge variant="outline" className="px-3 py-1 text-sm">
               Contact
@@ -287,8 +337,8 @@ export default function PortfolioPage() {
                   <div>
                     <h3 className="font-medium">Email</h3>
                     <p className="text-sm text-muted-foreground">
-                      <Link href="mailto:hello@example.com" className="hover:underline">
-                        hello@example.com
+                      <Link href="mailto:maxhgr3@gmail.com" className="hover:underline">
+                        maxhgr3@gmail.com
                       </Link>
                     </p>
                   </div>
@@ -299,12 +349,11 @@ export default function PortfolioPage() {
                     <h3 className="font-medium">LinkedIn</h3>
                     <p className="text-sm text-muted-foreground">
                       <Link
-                        href="https://linkedin.com/in/yourprofile"
+                        href="https://www.linkedin.com/in/h%C3%B6ger-maximilian/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:underline"
-                      >
-                        linkedin.com/in/yourprofile
+                        className="hover:underline">
+                        https://www.linkedin.com/in/höger-maximilian/
                       </Link>
                     </p>
                   </div>
@@ -315,12 +364,11 @@ export default function PortfolioPage() {
                     <h3 className="font-medium">GitHub</h3>
                     <p className="text-sm text-muted-foreground">
                       <Link
-                        href="https://github.com/yourusername"
+                        href="https://github.com/maxHGR"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:underline"
-                      >
-                        github.com/yourusername
+                        className="hover:underline">
+                        github.com/maxHGR
                       </Link>
                     </p>
                   </div>
@@ -330,8 +378,8 @@ export default function PortfolioPage() {
                   <p className="text-sm text-muted-foreground">
                     I'm currently available for freelance work and open to full-time opportunities.
                   </p>
-                  <div className="mt-4">
-                    <a href="/alex-developer-cv.pdf" download className="inline-flex">
+                  <div className="mt-8 flex justify-end">
+                    <a href="/cv/cv-maximilian-hoeger.pdf" download className="inline-flex">
                       <Button variant="outline" size="sm">
                         Download My CV
                         <Download className="ml-2 h-4 w-4" />
@@ -344,8 +392,10 @@ export default function PortfolioPage() {
           </div>
         </section>
       </main>
+
       <footer className="border-t py-6">
-        <div className="container flex flex-col md:flex-row justify-between items-center gap-4">
+        <div
+          className={`${containerStyle} flex flex-col md:flex-row justify-between items-center gap-4`}>
           <div className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} DevPortfolio. All rights reserved.
           </div>
@@ -356,13 +406,13 @@ export default function PortfolioPage() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/h%C3%B6ger-maximilian/" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon">
                 <Linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
-            <Link href="mailto:hello@example.com">
+            <Link href="mailto:maxhgr3@gmail.com">
               <Button variant="ghost" size="icon">
                 <Mail className="h-4 w-4" />
                 <span className="sr-only">Email</span>
@@ -372,6 +422,6 @@ export default function PortfolioPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
 

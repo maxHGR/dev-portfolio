@@ -76,7 +76,7 @@ export default function PortfolioPage() {
 
           <div className="basis-2/6 flex justify-end items-center gap-4">
             <Link
-              href="https://github.com"
+              href="https://github.com/maxHGR"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium hover:text-primary transition-colors">
@@ -176,7 +176,7 @@ export default function PortfolioPage() {
                   height={300}
                   className="object-cover rounded-lg mx-auto" />
               </div>
-              <div className="space-y-4">
+              <div className="p-2 space-y-4 leading-loose tracking-wide">
                 <p>
                   I'm a frontend developer who builds modern web applications. I specialize in
                   React, Next.js and Tailwind CSS, with a strong focus on creating accessible and performant user
@@ -216,13 +216,13 @@ export default function PortfolioPage() {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-8">
             {[
               { name: "HTML", description: "Semantic markup and accessability", icon: skillIcons.html },
-              { name: "CSS", description: "Modern CSS", icon: skillIcons.css },
+              { name: "CSS", description: "Modern and responsive CSS styling", icon: skillIcons.css },
               { name: "JavaScript", description: "ES6+, TypeScript, and functional programming", icon: skillIcons.javascript },
               { name: "React", description: "Components, hooks, and state management", icon: skillIcons.react },
               { name: "Next.js", description: "Server-side rendering and static site generation", icon: skillIcons.nextjs },
               { name: "Tailwind CSS", description: "Utility-first CSS framework", icon: skillIcons.tailwind },
-              { name: "UI/UX", description: "Responsive design and intuitive navigation that increases UX", icon: skillIcons.uiux },
-              { name: "Blockchain", description: "Blockchain ecosystem", icon: skillIcons.blockchain },
+              { name: "UI/UX", description: "Responsive design and intuitive navigation that increases user experience", icon: skillIcons.uiux },
+              { name: "Blockchain", description: "Blockchain technology, NFTs and Smart Contracts", icon: skillIcons.blockchain },
             ].map((skill, index) => (
               <Card key={index} className="h-full">
                 <CardHeader>
@@ -252,26 +252,32 @@ export default function PortfolioPage() {
                 Projects
               </Badge>
               <h2 className="text-3xl font-bold tracking-tight">Featured Work</h2>
-              <p className="text-muted-foreground">A selection of my recent projects and collaborations.</p>
+              <p className="text-muted-foreground">A selection of my projects.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
               {[
                 {
                   title: "E-commerce Platform",
-                  description: "A modern e-commerce platform built with Next.js and Stripe integration.",
+                  description: "A modern e-commerce platform built with Next.js, Redux and Stripe integration. ",
                   image: ecommerceProject,
-                  tags: ["React", "Next.js", "Stripe", "Tailwind CSS", "Redux", "Firebase"],
+                  url: "https://buether.vercel.app/",
+                  github: "https://github.com/maxHGR/buether-clothing",
+                  tags: ["React", "Next.js", "Stripe", "REST API", "Tailwind CSS", "Redux", "Firebase"],
                 },
                 {
                   title: "AI Weather Chat",
                   description: "A chatbot that provides real-time weather updates using AI and OpenWeather API.",
                   image: weatherChatProject,
+                  url: "https://ai-chatbot-mauve-eight.vercel.app",
+                  github: "https://github.com/maxHGR/ai-chatbot",
                   tags: ["React", "TypeScript", "Tailwind CSS","OpenAI API"],
                 },
                 {
                   title: "Recipe Finder",
-                  description: "A cross-platform mobile application built with React Native.",
+                  description: "Recipe App which let´s you find recipes based on ingredients you have at home.",
                   image: recipeFinderProject,
+                  url: "https://react-recipe-app-chi.vercel.app",
+                  github: "https://github.com/maxHGR/recipe-app",
                   tags: ["React", "CSS"],
                 },
               ].map((project, index) => (
@@ -297,16 +303,18 @@ export default function PortfolioPage() {
                     </div>
                   </CardContent>
                   <CardFooter className="flex justify-end">
-                    <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <Link href={project.github} target="_blank" rel="noopener noreferrer">
                       <Button variant="ghost" size="icon">
                         <Github className="h-5 w-5" />
                         <span className="sr-only">GitHub</span>
                       </Button>
                     </Link>
-                    <Button size="sm" variant="ghost">
-                      <ExternalLink className="h-4 w-4" />
-                      <span className="sr-only">Visit project</span>
-                    </Button>
+                    <Link href={project.url} target="blank" rel="noopener noreferrer">
+                      <Button size="sm" variant="ghost">
+                        <ExternalLink className="h-4 w-4" />
+                        <span className="sr-only">Visit project</span>
+                      </Button>
+                    </Link>
                   </CardFooter>
                 </Card>
               ))}

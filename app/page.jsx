@@ -400,7 +400,7 @@ export default function PortfolioPage() {
             © {new Date().getFullYear()} DevPortfolio. All rights reserved.
           </div>
           <div className="flex gap-4">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/maxHGR" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon">
                 <Github className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>

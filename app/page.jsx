@@ -21,6 +21,7 @@ import blockchainIcon from "./assets/skill-icons/blockchain.svg"
 import ecommerceProject from "./assets/projects/buether.png"
 import weatherChatProject from "./assets/projects/ai-weather.png"
 import recipeFinderProject from "./assets/projects/recipe-finder.png"
+import newsFeedProject from "./assets/projects/news-feed.png"
 
 import aboutmeIllustration from "./assets/illustrations/computer-illustration(2).avif"
 
@@ -265,12 +266,12 @@ export default function PortfolioPage() {
                   tags: ["React", "Next.js", "Stripe", "REST API", "Tailwind CSS", "Redux", "Firebase"],
                 },
                 {
-                  title: "AI Weather Chat",
-                  description: "A chatbot that provides real-time weather updates using AI and OpenWeather API.",
-                  image: weatherChatProject,
-                  url: "https://ai-chatbot-mauve-eight.vercel.app",
-                  github: "https://github.com/maxHGR/ai-chatbot",
-                  tags: ["React", "TypeScript", "Tailwind CSS","OpenAI API"],
+                  title: "News Feed",
+                  description: "News feed application that fetches articles from various sources.",
+                  image: newsFeedProject,
+                  url: "https://pulswire.vercel.app/",
+                  github: "https://github.com/maxHGR/news-feed",
+                  tags: ["React", "Next.js", "REST API", "CSS", "Tailwind CSS"],
                 },
                 {
                   title: "Recipe Finder",
@@ -280,6 +281,15 @@ export default function PortfolioPage() {
                   github: "https://github.com/maxHGR/recipe-app",
                   tags: ["React", "CSS"],
                 },
+                {
+                  title: "AI Weather Chat",
+                  description: "A chatbot that provides real-time weather updates using AI and OpenWeather API.",
+                  image: weatherChatProject,
+                  url: "https://ai-chatbot-mauve-eight.vercel.app",
+                  github: "https://github.com/maxHGR/ai-chatbot",
+                  tags: ["React", "TypeScript", "Tailwind CSS","OpenAI API"],
+                },
+                
               ].map((project, index) => (
                 <Card key={index} className="overflow-hidden">
                   <div className="aspect-video relative">
